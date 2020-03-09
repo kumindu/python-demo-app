@@ -17,4 +17,4 @@
          image: openwitclub/pythonapp:latest
          imagePullPolicy: IfNotPresent
          ports:
-         - containerPort: 5000
+         - containerPort: 5055
