@@ -1,17 +1,20 @@
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: openwitclub/pythonapp
-spec:
-  replicas: 4
-  template:
-    metadata:
-      labels:
-        app: openwitclub/pythonapp
-    spec:
-      containers:
-      - name: openwitclub/pythonapp
-        image: openwitclub/pythonapp:latest
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 5000
+ apiVersion: extensions/v1beta1
+ kind: Deployment
+ metadata:
+   name: pythonapp
+ spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: pythonapp
+   template:
+     metadata:
+       labels:
+         app: pythonapp
+     spec:
+       containers:
+       - name: pythonapp
+         image: openwitclub/pythonapp:latest
+         imagePullPolicy: IfNotPresent
+         ports:
+         - containerPort: 5000

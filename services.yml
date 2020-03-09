@@ -4,9 +4,16 @@ metadata:
   name: pythonapp-service
 spec:
   selector:
-    app: openwitclub/pythonapp
+    app: pythonapp
   ports:
   - protocol: "TCP"
-    port: 6000
+    port: 80
     targetPort: 5000
   type: LoadBalancer
+   
+ 
+   
+   
+     
+   
+     
