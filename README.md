@@ -27,3 +27,52 @@ and then will deploy a new task definition to Amazon ECS, when a release is crea
     
 ## To use this kubernetes, you will need to complete the following set-up steps:
 
+ 1.Build docker images.
+```
+   docker build -t {docker_hub_profile_Name}/pythondemoapp .
+   
+```
+ 2.Docker push to docker hub
+ 
+```
+   docker login
+   docker push {docker_hub_profile_Name}/pythondemoapp 
+   
+```
+  3.Deploy to kubernetes deployment
+ 
+ ```
+   kubectl run pythonapp --image={docker_hub_profile_Name}/pythondemoapp:latest --port 8000 --labels="app=pythonapp,tier=backend"
+ 
+ ```
+ 
+  4.To get kubernetes deployment,pods
+ 
+ ```
+  kubectl get pods
+  kubectl get deployment
+  
+ ```
+ 
+  5.Create kubernetes service
+  
+ ```
+   kubectl expose deployment pythonapp --type=LoadBalancer --port 80 --target-port 8000
+ 
+ ```
+ 
+  6.To get kubernetes services
+ 
+ ```
+  
+   kubectl get service
+  
+ ```
+ 
+  7.To scale deployment in kubernetes
+  
+ ```
+   kubectl scale deployment pythonapp --replicas=2
+  
+ ```
+
