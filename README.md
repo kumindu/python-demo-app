@@ -1,8 +1,6 @@
 # python-demo-app
 python flask application
 
-# Go-Demo-App
-
 This workflow will build and push a new container image to Amazon ECR,
 and then will deploy a new task definition to Amazon ECS, when a release is created
 
